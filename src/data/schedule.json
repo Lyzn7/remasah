@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Kajian Akhlak Remaja",
+    "date": "2026-03-05",
+    "time": "19:30 WIB",
+    "location": "Aula Masjid Asiah",
+    "category": "Kajian",
+    "speaker": "Ust. Fadhil Ramadhan"
+  },
+  {
+    "title": "Ngaji Subuh & Sarapan",
+    "date": "2026-03-07",
+    "time": "05:00 WIB",
+    "location": "Ruang Utama Masjid",
+    "category": "Ngaji"
+  },
+  {
+    "title": "Kelas Desain Dakwah",
+    "date": "2026-03-09",
+    "time": "19:00 WIB",
+    "location": "Co-Working Masjid",
+    "category": "Workshop",
+    "speaker": "Mentor Kreatif RMA"
+  },
+  {
+    "title": "Bakti Sosial Jumat Berkah",
+    "date": "2026-03-13",
+    "time": "13:00 WIB",
+    "location": "RW 04, Tebet",
+    "category": "Sosial"
+  }
+]

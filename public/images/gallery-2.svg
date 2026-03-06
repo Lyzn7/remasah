@@ -1,0 +1,7 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="32" fill="#dcf4ea"/>
+  <rect x="120" y="180" width="560" height="260" rx="28" fill="#1B805B" fill-opacity=".12"/>
+  <rect x="170" y="230" width="180" height="160" rx="18" fill="#1B805B" fill-opacity=".4"/>
+  <rect x="390" y="230" width="240" height="160" rx="18" fill="#1B805B" fill-opacity=".25"/>
+  <text x="160" y="130" fill="#1B805B" font-family="Arial" font-size="40" font-weight="bold">Kajian Akbar</text>
+</svg>

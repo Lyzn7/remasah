@@ -1,0 +1,8 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#f2f8f5"/>
+  <rect x="80" y="140" width="1040" height="520" rx="32" fill="#1B805B" fill-opacity=".12"/>
+  <path d="M180 560c120-140 260-210 420-210s300 70 420 210" stroke="#1B805B" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="360" cy="320" r="110" fill="#1B805B" fill-opacity=".35"/>
+  <circle cx="720" cy="330" r="140" fill="#1B805B" fill-opacity=".25"/>
+  <text x="160" y="120" fill="#1B805B" font-family="Arial" font-size="48" font-weight="bold">Muda, Bertauhid, Berbagi</text>
+</svg>

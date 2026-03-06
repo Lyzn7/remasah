@@ -1,0 +1,6 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="32" fill="#e7f4ec"/>
+  <path d="M120 420L260 280l120 120 140-180 140 200H120z" fill="#1B805B" fill-opacity=".35"/>
+  <circle cx="530" cy="210" r="60" fill="#1B805B" fill-opacity=".15"/>
+  <text x="60" y="90" fill="#1B805B" font-family="Arial" font-size="40" font-weight="bold">Kegiatan Masjid</text>
+</svg>

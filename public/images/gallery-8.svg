@@ -1,0 +1,6 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="32" fill="#edf6f1"/>
+  <rect x="140" y="170" width="520" height="260" rx="28" fill="#1B805B" fill-opacity=".18"/>
+  <rect x="180" y="210" width="440" height="180" rx="20" fill="#1B805B" fill-opacity=".32"/>
+  <text x="200" y="170" fill="#1B805B" font-family="Arial" font-size="32" font-weight="bold">Produksi Konten Dakwah</text>
+</svg>

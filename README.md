@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Remaja Masjid Asiah — Landing Page (Next.js 16, App Router)
 
-## Getting Started
+Landing page modern, mobile-first, dan SEO-friendly untuk komunitas **Remaja Masjid Asiah** di Imogiri. Dibangun dengan Next.js (App Router) + TypeScript + Tailwind CSS (v4).
 
-First, run the development server:
+## Fitur Utama
+- Struktur halaman lengkap: beranda one-page, tentang, program, jadwal, galeri, artikel (list & detail), donasi, kontak.
+- Konten statis mudah diedit: JSON untuk data program/jadwal/galeri/faq, Markdown untuk artikel.
+- Optimasi performa: `next/image`, font `Plus Imogiri Sans` (`next/font`), lazy load, minimal JS.
+- SEO: Metadata API per halaman, Open Graph, Twitter Card, sitemap, robots.txt, JSON-LD (Organization & Article).
+- Aksesibilitas: alt text, fokus ring, kontras aman, navigasi keyboard, 1 h1 per halaman.
+- UI sesuai tema hijau-putih dengan aksen emas, adaptasi dari desain `stitch/screen.png`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Struktur Proyek
+```
+src/
+  app/
+    (halaman)... page.tsx
+    artikel/[slug]/page.tsx
+    layout.tsx, globals.css, sitemap.ts, robots.ts
+  components/
+    navbar, footer, section, card, cta-button, breadcrumb,
+    article-card, faq-accordion, whatsapp-floating,
+    lightbox-gallery, testimonial-carousel, schedule-list, countdown
+  lib/
+    site.ts, metadata.ts, articles.ts, date.ts
+data/
+  programs.json, schedule.json, gallery.json, faqs.json, testimonials.json
+content/articles/
+  *.md (dengan frontmatter)
+public/
+  logo, icons/whatsapp.svg, images/*.svg (hero, galeri, avatar)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Persiapan & Jalankan
+1. **Install dependency**
+   ```bash
+   npm install
+   ```
+2. **Dev server**
+   ```bash
+   npm run dev
+   ```
+   Buka http://localhost:3000
+3. **Build produksi**
+   ```bash
+   npm run build
+   npm start
+   ```
+4. **Lint**
+   ```bash
+   npm run lint
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy ke Vercel
+1. Push repo ke GitHub.
+2. Buat project di Vercel, pilih repo ini.
+3. Framework = Next.js, root = `.` (default).
+4. Setelah deploy, set `siteConfig.url` di `src/lib/site.ts` ke domain produksi agar canonical/OG benar.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Update Konten
+- **Program/Jadwal/Galeri/FAQ/Testimoni**: edit file di `data/*.json`.
+- **Artikel**: tambah file markdown di `content/articles/slug.md` dengan frontmatter:
+  ```md
+  ---
+  title: "Judul"
+  description: "Deskripsi singkat"
+  date: "2026-02-20"
+  tags: ["tag1","tag2"]
+  cover: "/images/gallery-1.svg"
+  author: "Nama"
+  ---
+  Isi artikel di sini...
+  ```
+- **Info organisasi & kontak**: `src/lib/site.ts`.
+- **Warna/tema**: `src/app/globals.css` (CSS custom + token Tailwind v4).
 
-## Learn More
+## SEO Checklist Cepat
+- [x] Metadata per halaman via `buildMetadata`.
+- [x] Canonical URL & title template.
+- [x] Open Graph & Twitter Card dengan cover lokal.
+- [x] JSON-LD Organization di `layout.tsx`.
+- [x] JSON-LD Article di halaman detail artikel.
+- [x] `sitemap.xml` otomatis termasuk artikel dinamis.
+- [x] `robots.txt` membuka semua halaman.
+- [x] Struktur heading semantik, 1x `h1` per halaman.
+- [x] Alt text semua gambar, tombol penting ada `aria-label`.
+- [x] Internal linking (navbar + breadcrumb + prev/next artikel).
 
-To learn more about Next.js, take a look at the following resources:
+## Catatan Desain/UX
+- Mobile-first, menu navbar collapsible, tombol WA mengambang.
+- Lightbox galeri sederhana, carousel testimoni auto-rotate (4.5s).
+- Countdown event otomatis pakai jadwal pertama di `data/schedule.json`.
+- Warna utama: hijau `#1B805B`, aksen emas `#E7B84C`, latar putih lembut.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Performa & Aksesibilitas
+- `next/image` untuk semua gambar statis, lazy loading default.
+- Font `Plus Imogiri Sans` dengan `display: swap`.
+- Minim JS di halaman statis; hanya komponen interaktif yang jadi client component.
+- Fokus ring & kontras mengikuti token tema.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Selamat menggunakan! 🎉
