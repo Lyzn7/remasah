@@ -16,10 +16,11 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    template: "%s | Remaja Masjid An-Nur",
-    default: "Remaja Masjid An-Nur",
+    template: "%s | Remaja Masjid Asiah Kerten Imogiri",
+    default: "Remaja Masjid Asiah – Kerten, Imogiri | Komunitas Pemuda Islam",
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
 };
 
 export default function RootLayout({
@@ -29,11 +30,30 @@ export default function RootLayout({
 }>) {
   const orgLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteConfig.name,
+    "@type": ["Organization", "LocalBusiness"],
+    name: "Remaja Masjid Asiah",
+    alternateName: ["Remasah", "Remaja Masjid Kerten", "Remaja Masjid Imogiri"],
     url: siteConfig.url,
     logo: `${siteConfig.url}/Remasah.png`,
-    address: siteConfig.address,
+    image: `${siteConfig.url}/Remasah.png`,
+    description: siteConfig.description,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Kerten",
+      addressLocality: "Imogiri",
+      addressRegion: "Bantul, Daerah Istimewa Yogyakarta",
+      addressCountry: "ID",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.lat,
+      longitude: siteConfig.geo.lng,
+    },
+    areaServed: [
+      { "@type": "City", name: "Imogiri" },
+      { "@type": "City", name: "Bantul" },
+      { "@type": "State", name: "Daerah Istimewa Yogyakarta" },
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -43,7 +63,11 @@ export default function RootLayout({
         availableLanguage: ["Indonesian"],
       },
     ],
-    sameAs: [siteConfig.instagram, siteConfig.social.youtube, siteConfig.social.tiktok],
+    sameAs: [
+      siteConfig.instagram,
+      siteConfig.social.youtube,
+      siteConfig.social.tiktok,
+    ],
   };
 
   return (

@@ -6,6 +6,7 @@ type MetaOptions = {
   description?: string;
   canonicalPath?: string;
   images?: { url: string; alt?: string }[];
+  keywords?: string[];
 };
 
 export function buildMetadata({
@@ -14,16 +15,22 @@ export function buildMetadata({
   canonicalPath = "/",
   images = [
     {
-      url: `${siteConfig.url}/images/hero.svg`,
+      url: `${siteConfig.url}/Remasah.png`,
       alt: siteConfig.description,
     },
   ],
+  keywords,
 }: MetaOptions): Metadata {
-  const fullTitle = `${title} | ${siteConfig.name}`;
+  const fullTitle = `${title} | Remaja Masjid Asiah Kerten Imogiri`;
   const canonical = `${siteConfig.url}${canonicalPath}`;
+  const mergedKeywords = [
+    ...(keywords ?? []),
+    ...siteConfig.keywords,
+  ];
   return {
     title: fullTitle,
     description: description ?? siteConfig.description,
+    keywords: mergedKeywords,
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical,

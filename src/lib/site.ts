@@ -1,7 +1,20 @@
 export const siteConfig = {
-  name: "Remaja Masjid Asiah",
+  name: "Remaja Masjid Asiah – Kerten, Imogiri",
+  shortName: "Remasah",
   description:
-    "Remaja Masjid Asiah Imogiri: ruang kolaborasi dakwah, kajian, sosial, dan kreatif untuk generasi muda.",
+    "Remaja Masjid Asiah adalah komunitas pemuda Islam aktif di Kerten, Imogiri, Yogyakarta. Bergerak di bidang dakwah, kajian, sosial, dan kreatif untuk generasi muda.",
+  keywords: [
+    "remaja masjid imogiri",
+    "remaja masjid kerten",
+    "remaja masjid asiah",
+    "remasah",
+    "remaja masjid imogiri bantul",
+    "pemuda masjid imogiri",
+    "remaja islam imogiri",
+    "organisasi pemuda islam kerten",
+    "komunitas islam imogiri",
+    "kajian remaja imogiri",
+  ],
   url: "https://remajamasjid.example.com",
   locale: "id_ID",
   whatsapp: "085800724090",
@@ -9,10 +22,10 @@ export const siteConfig = {
   instagram: "https://www.instagram.com/remajamasjidasiah/",
   email: "halo@remajamasjid.example.com",
   address:
-    "Jl. Melati No. 10, Kel. Asiah, Kec. Tebet, Imogiri Selatan, DKI Imogiri",
+    "Kerten, Imogiri, Bantul, Daerah Istimewa Yogyakarta",
   geo: {
-    lat: -6.2275,
-    lng: 106.8382,
+    lat: -7.9375,
+    lng: 110.3936,
   },
   social: {
     youtube: "https://www.youtube.com/@remajamasjid",
