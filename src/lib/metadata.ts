@@ -1,24 +1,38 @@
 import type { Metadata } from "next";
 import { siteConfig } from "./site";
 
+type OgImage = {
+  url: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  type?: string;
+};
+
 type MetaOptions = {
   title: string;
   description?: string;
   canonicalPath?: string;
-  images?: { url: string; alt?: string }[];
+  images?: OgImage[];
   keywords?: string[];
 };
+
+// Gambar default untuk OG/WhatsApp preview — harus berukuran min. 300×300
+const defaultOgImages: OgImage[] = [
+  {
+    url: `${siteConfig.url}/og-image.png`,
+    alt: siteConfig.name,
+    width: 1200,
+    height: 630,
+    type: "image/png",
+  },
+];
 
 export function buildMetadata({
   title,
   description,
   canonicalPath = "/",
-  images = [
-    {
-      url: `${siteConfig.url}/Remasah.png`,
-      alt: siteConfig.description,
-    },
-  ],
+  images = defaultOgImages,
   keywords,
 }: MetaOptions): Metadata {
   const fullTitle = `${title} | Remaja Masjid Asiah Kerten Imogiri`;
