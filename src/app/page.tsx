@@ -83,7 +83,7 @@ export default async function Home() {
           {[
             {
               title: "Berbasis Masjid",
-              desc: "Berakar di Masjid An-Nur Imogiri, menjadi pusat kegiatan dan kolaborasi.",
+              desc: "Berakar di Masjid Asiah Imogiri, menjadi pusat kegiatan dan kolaborasi.",
             },
             {
               title: "Fokus Pemuda",
@@ -177,7 +177,7 @@ export default async function Home() {
 
               <div className="flex min-w-0 flex-wrap gap-4">
                 <div className="min-w-0 rounded-xl bg-brand-light px-4 py-3 text-sm text-brand-dark break-words">
-                  Bank Syariah: 1234 5678 90 a.n. Remaja Masjid An-Nur
+                  Bank Syariah: 1234 5678 90 a.n. Remaja Masjid Asiah
                 </div>
 
                 <div className="min-w-0 rounded-xl border border-dashed border-brand/40 px-4 py-3 text-sm text-muted break-words">
@@ -198,7 +198,7 @@ export default async function Home() {
 
               <div className="mt-4">
                 <iframe
-                  title="Lokasi Masjid An-Nur"
+                  title="Lokasi Masjid Asiah"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.448!2d106.828!3d-6.200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknNDAuMCJF!5e0!3m2!1sen!2sid!4v00000000000"
                   width="100%"
                   height="auto"
