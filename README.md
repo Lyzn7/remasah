@@ -3,8 +3,8 @@
 Landing page modern, mobile-first, dan SEO-friendly untuk komunitas **Remaja Masjid Asiah** di Imogiri. Dibangun dengan Next.js (App Router) + TypeScript + Tailwind CSS (v4).
 
 ## Fitur Utama
-- Struktur halaman lengkap: beranda one-page, tentang, program, jadwal, galeri, artikel (list & detail), donasi, kontak.
-- Konten statis mudah diedit: JSON untuk data program/jadwal/galeri/faq, Markdown untuk artikel.
+- Struktur halaman lengkap: beranda one-page, tentang, program, galeri, artikel (list & detail), donasi, kontak.
+- Konten statis mudah diedit: JSON untuk data program/galeri/faq, Markdown untuk artikel.
 - Optimasi performa: `next/image`, font `Plus Imogiri Sans` (`next/font`), lazy load, minimal JS.
 - SEO: Metadata API per halaman, Open Graph, Twitter Card, sitemap, robots.txt, JSON-LD (Organization & Article).
 - Aksesibilitas: alt text, fokus ring, kontras aman, navigasi keyboard, 1 h1 per halaman.
@@ -20,11 +20,11 @@ src/
   components/
     navbar, footer, section, card, cta-button, breadcrumb,
     article-card, faq-accordion, whatsapp-floating,
-    lightbox-gallery, testimonial-carousel, schedule-list, countdown
+    lightbox-gallery, testimonial-carousel, countdown
   lib/
     site.ts, metadata.ts, articles.ts, date.ts
 data/
-  programs.json, schedule.json, gallery.json, faqs.json, testimonials.json
+  programs.json, gallery.json, faqs.json, testimonials.json
 content/articles/
   *.md (dengan frontmatter)
 public/
@@ -58,7 +58,7 @@ public/
 4. Setelah deploy, set `siteConfig.url` di `src/lib/site.ts` ke domain produksi agar canonical/OG benar.
 
 ## Update Konten
-- **Program/Jadwal/Galeri/FAQ/Testimoni**: edit file di `data/*.json`.
+- **Program/Galeri/FAQ/Testimoni**: edit file di `data/*.json`.
 - **Artikel**: tambah file markdown di `content/articles/slug.md` dengan frontmatter:
   ```md
   ---
@@ -89,7 +89,6 @@ public/
 ## Catatan Desain/UX
 - Mobile-first, menu navbar collapsible, tombol WA mengambang.
 - Lightbox galeri sederhana, carousel testimoni auto-rotate (4.5s).
-- Countdown event otomatis pakai jadwal pertama di `data/schedule.json`.
 - Warna utama: hijau `#1B805B`, aksen emas `#E7B84C`, latar putih lembut.
 
 ## Performa & Aksesibilitas

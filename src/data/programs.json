@@ -1,18 +1,17 @@
 [
   {
-    "title": "Kajian Pemuda",
-    "description": "Ngaji tematik setiap Sabtu sore dengan ustadz muda, bahas isu kekinian dan fiqih praktis.",
+    "title": "Kajian Al-Qur'an",
+    "description": "Kegiatan belajar dan tadabbur Al-Qur'an untuk remaja masjid secara rutin dan terarah.",
     "icon": "📖"
   },
   {
-    "title": "Sosial & Amal",
-    "description": "Program bakti sosial, santunan yatim, dan gerakan kebersihan lingkungan masjid.",
+    "title": "Bakti Sosial",
+    "description": "Aksi sosial untuk membantu warga sekitar dan menumbuhkan kepedulian jamaah muda.",
     "icon": "🤝"
   },
   {
-    "title": "Kreatif & Media",
-    "description": "Pelatihan desain, konten dakwah, podcast, dan pengelolaan media sosial masjid.",
-    "icon": "🎨"
+    "title": "Pembuatan Media Sosial",
+    "description": "Pengelolaan konten Instagram dan TikTok untuk publikasi kegiatan dan dakwah digital.",
+    "icon": "📱"
   }
-
 ]

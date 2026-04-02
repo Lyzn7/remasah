@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card } from "@/components/card";
 import { Section } from "@/components/section";
 import { CTAButton } from "@/components/cta-button";
@@ -21,28 +20,31 @@ export default function DonasiPage() {
             <h3 className="text-xl font-semibold">Saluran Donasi</h3>
             <div className="space-y-2 text-sm text-muted">
               <p>
-                <span className="font-semibold text-foreground">Rekening:</span> Bank
-                Syariah 1234 5678 90 a.n. Remaja Masjid Asiah
+                Informasi rekening dan QRIS terbaru dibagikan langsung oleh pengurus
+                agar data donasi yang diterima tetap benar dan aman.
               </p>
               <p>
-                <span className="font-semibold text-foreground">QRIS:</span> gunakan
-                kode di samping, lalu kirim bukti ke WhatsApp.
+                Hubungi WhatsApp pengurus untuk meminta detail donasi, lalu kirim bukti
+                transfer setelah pembayaran.
               </p>
             </div>
-            <CTAButton href={siteConfig.whatsappLink}>Konfirmasi via WhatsApp</CTAButton>
+            <CTAButton href={siteConfig.whatsappLink}>Minta Info Donasi</CTAButton>
           </Card>
 
-          <Card className="flex flex-col items-center gap-3">
-            <div className="relative h-48 w-48 overflow-hidden rounded-2xl bg-brand-light">
-              <Image
-                src="/images/hero.svg"
-                alt="QRIS placeholder"
-                fill
-                sizes="200px"
-                className="object-cover"
-              />
+          <Card className="flex flex-col gap-4">
+            <h3 className="text-xl font-semibold">Konfirmasi & Update</h3>
+            <p className="text-sm text-muted">
+              Update kegiatan dan publikasi donasi juga dibagikan melalui media sosial
+              resmi Remaja Masjid Asiah.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <CTAButton href={siteConfig.instagram} target="_blank" variant="ghost">
+                Instagram
+              </CTAButton>
+              <CTAButton href={siteConfig.social.tiktok} target="_blank" variant="ghost">
+                TikTok
+              </CTAButton>
             </div>
-            <p className="text-sm text-muted">Scan QRIS untuk infak cepat</p>
           </Card>
         </div>
 

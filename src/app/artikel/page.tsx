@@ -12,11 +12,17 @@ export const generateMetadata = () =>
 
 export default function ArtikelPage() {
   const articles = getArticles();
+  const articleGridClass =
+    articles.length <= 1
+      ? "grid gap-6"
+      : articles.length === 2
+        ? "grid gap-6 md:grid-cols-2"
+        : "grid gap-6 md:grid-cols-3";
 
   return (
     <div className="bg-background text-foreground">
       <Section title="Artikel" subtitle="Belajar & berbagi insight">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className={articleGridClass}>
           {articles.map((article) => (
             <ArticleCard key={article.slug} article={article} />
           ))}

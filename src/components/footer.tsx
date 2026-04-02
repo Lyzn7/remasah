@@ -5,21 +5,22 @@ const footerLinks = [
   { label: "Beranda", href: "/" },
   { label: "Tentang", href: "/tentang" },
   { label: "Program", href: "/program" },
-  { label: "Jadwal", href: "/jadwal" },
   { label: "Galeri", href: "/galeri" },
   { label: "Artikel", href: "/artikel" },
   { label: "Donasi", href: "/donasi" },
   { label: "Kontak", href: "/kontak" },
 ];
 
-const socialLinks = [
-  { label: "WhatsApp", href: siteConfig.whatsappLink },
-  { label: "Instagram", href: siteConfig.instagram },
-  { label: "YouTube", href: siteConfig.social.youtube },
-  { label: "TikTok", href: siteConfig.social.tiktok },
-];
-
 export function Footer() {
+  const socialLinks = [
+    { label: "WhatsApp", href: siteConfig.whatsappLink },
+    { label: "Instagram", href: siteConfig.instagram },
+    { label: "TikTok", href: siteConfig.social.tiktok },
+    ...(siteConfig.social.youtube
+      ? [{ label: "YouTube", href: siteConfig.social.youtube }]
+      : []),
+  ];
+
   return (
     <footer className="border-t border-neutral-100 bg-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-4 md:px-6">
@@ -32,7 +33,9 @@ export function Footer() {
           <div className="text-sm text-muted">
             <p className="break-words">{siteConfig.address}</p>
             <p className="break-words">WhatsApp: {siteConfig.whatsapp}</p>
-            <p className="break-words">Email: {siteConfig.email}</p>
+            {siteConfig.email ? (
+              <p className="break-words">Email: {siteConfig.email}</p>
+            ) : null}
           </div>
         </div>
 
@@ -59,6 +62,7 @@ export function Footer() {
                 key={item.href}
                 href={item.href}
                 target="_blank"
+                rel="noreferrer"
                 className="min-w-0 break-words hover:text-brand"
               >
                 {item.label}
@@ -68,14 +72,13 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar: mobile selalu ke bawah (stack) */}
       <div className="border-t border-neutral-100 bg-brand text-center text-sm text-white">
         <div className="mx-auto max-w-6xl px-4 py-3 md:px-6">
           <div className="flex flex-col items-center gap-2">
             <span className="break-words">
               &copy; {new Date().getFullYear()} {siteConfig.name}
             </span>
-            <span className="break-words text-white/80">“Muda, Beriman, Berdaya.”</span>
+            <span className="break-words text-white/80">Muda, Beriman, Berdaya.</span>
           </div>
         </div>
       </div>

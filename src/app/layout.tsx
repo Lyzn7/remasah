@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     template: "%s | Remaja Masjid Asiah Kerten Imogiri",
-    default: "Remaja Masjid Asiah – Kerten, Imogiri | Komunitas Pemuda Islam",
+    default: "Remaja Masjid Asiah - Kerten, Imogiri | Komunitas Pemuda Islam",
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Remaja Masjid Asiah – Kerten, Imogiri",
+        alt: "Remaja Masjid Asiah - Kerten, Imogiri",
         type: "image/png",
       },
     ],
@@ -46,6 +46,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const sameAs = [
+    siteConfig.instagram,
+    siteConfig.social.youtube,
+    siteConfig.social.tiktok,
+  ].filter((url): url is string => Boolean(url));
+
   const orgLd = {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness"],
@@ -81,11 +87,7 @@ export default function RootLayout({
         availableLanguage: ["Indonesian"],
       },
     ],
-    sameAs: [
-      siteConfig.instagram,
-      siteConfig.social.youtube,
-      siteConfig.social.tiktok,
-    ],
+    sameAs,
   };
 
   return (

@@ -1,5 +1,12 @@
+import Link from "next/link";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
+import { CTAButton } from "@/components/cta-button";
+import {
+  managementPeriod,
+  managementStructure,
+  shortTermPrograms,
+} from "@/data/organization";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -7,63 +14,103 @@ export const generateMetadata = () =>
   buildMetadata({
     title: "Tentang",
     description:
-      "Profil Remaja Masjid Asiah Imogiri, visi misi, struktur organisasi, dan arah gerak dakwah pemuda.",
+      `Profil Remaja Masjid Asiah Imogiri, struktur kepengurusan ${managementPeriod}, dan program jangka pendek pemuda masjid.`,
     canonicalPath: "/tentang",
   });
 
 export default function TentangPage() {
   return (
     <div className="bg-background text-foreground">
-      <Section title="Tentang Remaja Masjid Asiah" subtitle="Profil Singkat">
+      <Section
+        title="Tentang Remaja Masjid Asiah"
+        subtitle={`Profil dan Kepengurusan ${managementPeriod}`}
+      >
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <h3 className="text-xl font-semibold">Visi</h3>
             <p className="mt-2 text-sm text-muted">
-              Menjadi komunitas pemuda masjid yang unggul dalam iman, ilmu, dan aksi
-              sosial di Imogiri.
+              Menjadi wadah pemuda masjid yang aktif, amanah, dan bermanfaat bagi jamaah
+              melalui dakwah, sosial, dan media yang relevan.
             </p>
           </Card>
           <Card>
             <h3 className="text-xl font-semibold">Misi</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">
-              <li>Menumbuhkan budaya belajar Al-Qur’an dan kajian tematik.</li>
-              <li>Mendorong gerakan sosial berkelanjutan dan transparan.</li>
-              <li>Memfasilitasi kreativitas dakwah digital dan media.</li>
-              <li>Memperkuat ukhuwah melalui olahraga dan kegiatan kebersamaan.</li>
+              <li>Menumbuhkan budaya belajar Al-Qur&apos;an dan kajian yang terarah.</li>
+              <li>Menguatkan bakti sosial sebagai bentuk kepedulian jamaah muda.</li>
+              <li>Membangun media sosial untuk publikasi kegiatan dan dakwah digital.</li>
+              <li>Menjaga kolaborasi antar pengurus selama periode amanah 2026-2030.</li>
             </ul>
           </Card>
         </div>
+
         <Card className="mt-6">
-          <h3 className="text-xl font-semibold">Struktur Ringkas</h3>
-          <div className="mt-3 grid gap-3 md:grid-cols-3 text-sm text-muted">
-            <div>
-              <p className="font-semibold text-foreground">Pembina</p>
-              <p>Ust. Ahmad Syaifuddin</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">Ketua</p>
-              <p>Rizky Harits</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">Sekretaris</p>
-              <p>Aisyah Purnama</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">Bendahara</p>
-              <p>Fajar Lazuardi</p>
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">Divisi</p>
-              <p>Kajian, Sosial, Media, Kreatif, Olahraga, Dana Usaha</p>
-            </div>
+          <h3 className="text-xl font-semibold">Struktur Kepengurusan {managementPeriod}</h3>
+          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {managementStructure.map((division) => (
+              <div
+                key={division.title}
+                className="rounded-xl border border-neutral-200 bg-white p-4"
+              >
+                <p className="font-semibold text-foreground">{division.title}</p>
+                <ul className="mt-2 space-y-1 text-sm text-muted">
+                  {division.members.map((member) => (
+                    <li key={member}>{member}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </Card>
-        <Card className="mt-6">
-          <h3 className="text-xl font-semibold">Kontak</h3>
-          <p className="text-sm text-muted">{siteConfig.address}</p>
-          <p className="text-sm text-muted">WhatsApp: {siteConfig.whatsapp}</p>
-          <p className="text-sm text-muted">Email: {siteConfig.email}</p>
-        </Card>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
+          <Card>
+            <h3 className="text-xl font-semibold">Program Jangka Pendek</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted">
+              {shortTermPrograms.map((program) => (
+                <li key={program}>{program}</li>
+              ))}
+            </ul>
+          </Card>
+          <Card>
+            <h3 className="text-xl font-semibold">Kontak & Media Sosial</h3>
+            <p className="text-sm text-muted">{siteConfig.address}</p>
+            <p className="text-sm text-muted">WhatsApp: {siteConfig.whatsapp}</p>
+            <div className="mt-2 space-y-1 text-sm text-muted">
+              <p>
+                Instagram:{" "}
+                <Link
+                  href={siteConfig.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-brand hover:underline"
+                >
+                  {siteConfig.instagramHandle}
+                </Link>
+              </p>
+              <p>
+                TikTok:{" "}
+                <Link
+                  href={siteConfig.social.tiktok}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-brand hover:underline"
+                >
+                  {siteConfig.social.tiktokHandle}
+                </Link>
+              </p>
+              {siteConfig.email ? <p>Email: {siteConfig.email}</p> : null}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <CTAButton href={siteConfig.instagram} target="_blank">
+                Instagram
+              </CTAButton>
+              <CTAButton href={siteConfig.social.tiktok} target="_blank" variant="ghost">
+                TikTok
+              </CTAButton>
+            </div>
+          </Card>
+        </div>
       </Section>
     </div>
   );

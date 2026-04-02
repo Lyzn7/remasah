@@ -1,5 +1,6 @@
-import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { buildMetadata } from "@/lib/metadata";
 import { getArticle, getArticles } from "@/lib/articles";
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: Params) {
   const { slug } = params;
   const article = await getArticle(slug);
   if (!article) return notFound();
+
   return buildMetadata({
     title: article.title,
     description: article.description,
@@ -28,7 +30,7 @@ export default async function ArticleDetail({ params }: Params) {
   if (!article) return notFound();
 
   const allArticles = getArticles();
-  const currentIndex = allArticles.findIndex((a) => a.slug === slug);
+  const currentIndex = allArticles.findIndex((item) => item.slug === slug);
   const prev = allArticles[currentIndex + 1];
   const next = allArticles[currentIndex - 1];
 
@@ -70,7 +72,7 @@ export default async function ArticleDetail({ params }: Params) {
             <span aria-hidden className="h-1 w-1 rounded-full bg-neutral-300"></span>
             <span>{article.author}</span>
             <span aria-hidden className="h-1 w-1 rounded-full bg-neutral-300"></span>
-            <span>{article.readingTime} menit baca</span>
+         
           </div>
           <div className="relative mt-6 h-80 overflow-hidden rounded-2xl ring-1 ring-neutral-100">
             <Image
@@ -87,7 +89,7 @@ export default async function ArticleDetail({ params }: Params) {
 
       <article className="mx-auto max-w-4xl px-4 py-10 text-lg leading-8 text-foreground md:px-6">
         <div
-          className="[&>h2]:mt-6 [&>h2]:text-2xl [&>h3]:mt-4 [&>h3]:text-xl [&>p]:mb-4 [&>p]:text-base [&>ul]:ml-5 [&>ul]:list-disc [&>ul]:text-base"
+          className="[&>blockquote]:my-6 [&>blockquote]:border-l-4 [&>blockquote]:border-brand/40 [&>blockquote]:bg-brand-light/40 [&>blockquote]:px-4 [&>blockquote]:py-3 [&>blockquote]:text-base [&>h2]:mt-6 [&>h2]:text-2xl [&>h3]:mt-4 [&>h3]:text-xl [&>ol]:ml-5 [&>ol]:list-decimal [&>ol]:text-base [&>p]:mb-4 [&>p]:text-base [&>ul]:ml-5 [&>ul]:list-disc [&>ul]:text-base"
           dangerouslySetInnerHTML={{ __html: article.contentHtml }}
         />
       </article>
@@ -102,18 +104,18 @@ export default async function ArticleDetail({ params }: Params) {
 
       <div className="mx-auto flex max-w-4xl items-center justify-between px-4 pb-14 md:px-6">
         <div>
-          {prev && (
-            <a href={`/artikel/${prev.slug}`} className="text-sm text-brand hover:underline">
-              ← {prev.title}
-            </a>
-          )}
+          {prev ? (
+            <Link href={`/artikel/${prev.slug}`} className="text-sm text-brand hover:underline">
+              Sebelumnya: {prev.title}
+            </Link>
+          ) : null}
         </div>
         <div>
-          {next && (
-            <a href={`/artikel/${next.slug}`} className="text-sm text-brand hover:underline">
-              {next.title} →
-            </a>
-          )}
+          {next ? (
+            <Link href={`/artikel/${next.slug}`} className="text-sm text-brand hover:underline">
+              Berikutnya: {next.title}
+            </Link>
+          ) : null}
         </div>
       </div>
 

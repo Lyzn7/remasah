@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/", label: "Beranda" },
   { href: "/tentang", label: "Tentang" },
   { href: "/program", label: "Program" },
-  { href: "/jadwal", label: "Jadwal" },
   { href: "/galeri", label: "Galeri" },
   { href: "/artikel", label: "Artikel" },
   { href: "/donasi", label: "Donasi" },

@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}`, priority: 1.0, changeFrequency: "weekly" as const },
     { url: `${base}/tentang`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${base}/program`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${base}/jadwal`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${base}/galeri`, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${base}/artikel`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${base}/donasi`, priority: 0.7, changeFrequency: "monthly" as const },
