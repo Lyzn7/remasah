@@ -8,11 +8,11 @@ import { formatDate } from "@/lib/date";
 import { siteConfig } from "@/lib/site";
 
 type Params = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Params) {
-  const { slug } = params;
+  const { slug } = await params;
   const article = await getArticle(slug);
   if (!article) return notFound();
 
@@ -24,8 +24,14 @@ export async function generateMetadata({ params }: Params) {
   });
 }
 
+export function generateStaticParams() {
+  return getArticles().map((article) => ({
+    slug: article.slug,
+  }));
+}
+
 export default async function ArticleDetail({ params }: Params) {
-  const { slug } = params;
+  const { slug } = await params;
   const article = await getArticle(slug);
   if (!article) return notFound();
 

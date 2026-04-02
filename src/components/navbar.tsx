@@ -65,7 +65,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${active ? "text-brand" : "text-muted hover:text-brand"
+                aria-current={active ? "page" : undefined}
+                className={`rounded-full px-3 py-2 text-sm font-medium transition-colors ${active
+                    ? "bg-brand-light text-brand"
+                    : "text-muted hover:bg-brand-light/60 hover:text-brand"
                   }`}
                 onClick={() => setOpen(false)}
               >

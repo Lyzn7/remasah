@@ -149,14 +149,21 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section id="galeri" >
-        <h1 className="text-white text-bold " >
-          cuplikan kegiatan
-        </h1>
-        <Reveal y={10} duration={1.1}>
-          <LightboxGallery items={gallery as GalleryItem[]} />
-        </Reveal>
-      </Section>
+      <Section id="galeri">
+  <div className="text-center mb-10">
+    <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white to-white bg-clip-text text-transparent">
+      Cuplikan Kegiatan
+    </h1>
+    <p className="text-white mt-3 text-sm md:text-base">
+      Dokumentasi singkat dari berbagai aktivitas yang telah dilakukan
+    </p>
+    <div className="w-20 h-1 bg-white mx-auto mt-4 rounded-full"></div>
+  </div>
+
+  <Reveal y={10} duration={1.1}>
+    <LightboxGallery items={gallery as GalleryItem[]} />
+  </Reveal>
+</Section>
 
       <Section id="artikel" subtitle="Artikel" title="Baca Insight Terbaru" className="bg-white">
         <div className={articleGridClass}>
