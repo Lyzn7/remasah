@@ -44,11 +44,11 @@ export function LightboxGallery({ items }: Props) {
           aria-modal="true"
         >
           <button
-            className="absolute right-6 top-6 text-white"
+            className="absolute right-6 top-6 text-3xl leading-none text-white"
             onClick={() => setOpenIndex(null)}
             aria-label="Tutup lightbox"
           >
-            ✕
+            ×
           </button>
           <div className="relative h-[70vh] w-full max-w-4xl">
             <Image
